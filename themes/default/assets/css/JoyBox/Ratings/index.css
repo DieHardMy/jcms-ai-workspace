@@ -1,0 +1,72 @@
+/* Стили для аккордеона в контексте joybox-filters-form */
+#joybox-filters-form .accordion {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+#joybox-filters-form .accordion-item {
+  border: none; /* Убираем границы у элементов аккордеона */
+}
+
+#joybox-filters-form .accordion-header {
+  width: 100%;
+  text-align: left;
+  background-color: #f8f9fa;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  font-size: 1.1em;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  padding: 0; /* Убираем стандартный отступ у кнопок аккордеона */
+}
+
+#joybox-filters-form .accordion-button {
+  padding: 12px 15px;
+  width: 100%;
+  text-align: left;
+  background-color: #f8f9fa;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1em;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+#joybox-filters-form .accordion-button:hover {
+  background-color: #e9ecef;
+}
+
+#joybox-filters-form .accordion-button:focus {
+  box-shadow: none; /* Убираем обводку при фокусе */
+}
+
+#joybox-filters-form .accordion-body {
+  padding: 10px 15px;
+  background-color: white;
+}
+
+#joybox-filters-form .form-check-label {
+  display: block;
+  margin-bottom: 8px;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#joybox-filters-form .form-check-label:hover {
+  background-color: #f1f1f1;
+}
+
+#joybox-filters-form .form-check-input {
+  margin-right: 8px;
+}

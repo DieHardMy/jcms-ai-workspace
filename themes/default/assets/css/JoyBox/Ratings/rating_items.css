@@ -1,0 +1,52 @@
+/* Кастомные цвета для топ-3 игроков */
+.text-gold {
+  color: #ffd700; /* Золотой цвет */
+}
+
+.text-silver {
+  color: #c0c0c0; /* Серебряный цвет */
+}
+
+.text-bronze {
+  color: #cd7f32; /* Бронзовый цвет */
+}
+
+/* Стили для границ топ-3 игроков */
+.border-gold {
+  border-left-color: #ffd700 !important; /* Золотая граница */
+}
+
+.border-silver {
+  border-left-color: #c0c0c0 !important; /* Серебряная граница */
+}
+
+.border-bronze {
+  border-left-color: #cd7f32 !important; /* Бронзовая граница */
+}
+
+/* Общие стили для списка игроков */
+.list-group-item {
+  padding: 0.75rem 1.25rem;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  margin-bottom: -1px; /* Убираем двойные границы между элементами */
+}
+
+.list-group-item:first-child {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.list-group-item:last-child {
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  margin-bottom: 0;
+}
+
+/* Стили для текста и выравнивания */
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+.text-muted {
+  color: #6c757d !important;
+}

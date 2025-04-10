@@ -1,0 +1,15 @@
+.card-category {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-category:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.card-category .card-img-top {
+  height: 150px;
+  object-fit: cover;
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+
