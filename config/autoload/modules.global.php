@@ -29,6 +29,7 @@ return [
             'redirect',
             'registration',
             'rss',
+            'game_instant_lottery',
         ],
         'system_modules'    => [
             'admin',

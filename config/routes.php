@@ -103,4 +103,11 @@ return static function (RouteCollector $map, User $user) {
         /** @psalm-suppress MissingFile */
         require CONFIG_PATH . 'routes.local.php';
     }
+
+    // game_instant_lottery module routes
+    if (is_file(ROOT_PATH . 'modules/game_instant_lottery/config/routes.php')) {
+        $module_routes = require ROOT_PATH . 'modules/game_instant_lottery/config/routes.php';
+        $module_routes($map, $user);
+    }
 };
+
