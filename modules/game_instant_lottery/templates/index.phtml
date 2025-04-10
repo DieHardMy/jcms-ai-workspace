@@ -1,0 +1,57 @@
+<?php
+
+/**
+ * Template for the main game page.
+ *
+ * @var array $config Configuration settings for the module.
+ * @var int $defaultRows Default number of rows for the game board.
+ * @var int $defaultCols Default number of columns for the game board.
+ */
+
+use JohnCMS\Core\Http\Request;
+
+$config = $this->config;
+$defaultRows = $config['default_rows'];
+$defaultCols = $config['default_cols'];
+$minRows = $config['min_rows'];
+$maxRows = $config['max_rows'];
+$minCols = $config['min_cols'];
+$maxCols = $config['max_cols'];
+
+$request = Request::getInstance();
+
+echo '<div class="game-container">';
+echo '<h1>' . _t('module_name') . '</h1>';
+
+echo '<form id="game-settings-form" method="post">';
+echo '<div class="form-group">';
+echo '<label for="rows">' . _t('rows') . ':</label>';
+echo '<input type="number" id="rows" name="rows" min="' . $minRows . '" max="' . $maxRows . '" value="' . $defaultRows . '" required>';
+echo '</div>';
+
+echo '<div class="form-group">';
+echo '<label for="cols">' . _t('cols') . ':</label>';
+echo '<input type="number" id="cols" name="cols" min="' . $minCols . '" max="' . $maxCols . '" value="' . $defaultCols . '" required>';
+echo '</div>';
+
+echo '<button type="submit" id="startGame">' . _t('start_game') . '</button>';
+echo '</form>';
+
+echo '<div id="game-info">';
+echo '<div id="current-row"></div>';
+echo '<div id="session-bank"></div>';
+echo '<div id="total-balance"></div>';
+echo '<div id="extra-turns"></div>';
+echo '</div>';
+
+echo '<div id="game-board">';
+// Render the game board here (or let JavaScript handle it)
+echo '</div>';
+
+echo '<button id="cashOut" style="display: none;">' . _t('cash_out') . '</button>';
+echo '<div id="game-messages"></div>';
+
+echo '</div>';
+
+echo '<script src="/themes/default/assets/game_instant_lottery/game.js"></script>';
+?>
