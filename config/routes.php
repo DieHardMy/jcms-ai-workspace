@@ -1,14 +1,15 @@
+php
 <?php
 
-/**
- * This file is part of JohnCMS Content Management System.
- *
- * @copyright JohnCMS Community
- * @license   https://opensource.org/licenses/GPL-3.0 GPL-3.0
- * @link      https://johncms.com JohnCMS Project
- */
+    /**
+     * This file is part of JohnCMS Content Management System.
+     *
+     * @copyright JohnCMS Community
+     * @license   https://opensource.org/licenses/GPL-3.0 GPL-3.0
+     * @link      https://johncms.com JohnCMS Project
+     */
 
-declare(strict_types=1);
+    declare(strict_types=1);
 
 use Admin\Controllers\System\SystemCheckController;
 use Admin\Controllers\Users\UsersController;
@@ -58,7 +59,7 @@ return static function (RouteCollector $map, User $user) {
     $map->addRoute(['GET', 'POST'], '/news/search/', [SearchController::class, 'index']);
     $map->addRoute(['GET', 'POST'], '/news/search_tags/', [SearchController::class, 'byTags']);
     $map->addRoute(['GET', 'POST'], '/news/add_vote/{article_id:\d+}/{type_vote:\d}/', [VoteController::class, 'add']);
-    $map->addRoute(['GET', 'POST'], '/news/comments/{article_id:\d+}/', [CommentsController::class, 'index']);
+    $map->addRoute(['GET', 'POST'], '/news/comments/{article_id:\\d+}/', [CommentsController::class, 'index']);
     $map->addRoute(['GET', 'POST'], '/news/comments/add/{article_id:\d+}/', [CommentsController::class, 'add']);
     $map->addRoute(['GET', 'POST'], '/news/comments/del/', [CommentsController::class, 'del']);
     if ($user->isValid() && empty($user->ban)) {
@@ -66,15 +67,15 @@ return static function (RouteCollector $map, User $user) {
     }
 
     if ($user->rights >= 9 && $user->isValid()) {
-        $map->addRoute(['GET', 'POST'], '/admin/news/', [AdminController::class, 'index']);
-        $map->addRoute(['GET', 'POST'], '/admin/news/content/[{section_id:\d+}[/]]', [AdminController::class, 'section']);
+        $map->addRoute(['GET', 'POST'], '/admin/news[/]', [AdminController::class, 'index']);
+        $map->addRoute(['GET', 'POST'], '/admin/news/content/[{section_id:\\d+}[/]]', [AdminController::class, 'section']);
         $map->addRoute(['GET', 'POST'], '/admin/news/settings/', [AdminController::class, 'settings']);
-        $map->addRoute(['GET', 'POST'], '/admin/news/edit_article/{article_id:\d+}[/]', [AdminArticleController::class, 'edit']);
-        $map->addRoute(['GET', 'POST'], '/admin/news/add_article/[{section_id:\d+}[/]]', [AdminArticleController::class, 'add']);
-        $map->addRoute(['GET', 'POST'], '/admin/news/del_article/{article_id:\d+}[/]', [AdminArticleController::class, 'del']);
-        $map->addRoute(['GET', 'POST'], '/admin/news/add_section/[{section_id:\d+}[/]]', [AdminSectionController::class, 'add']);
-        $map->addRoute(['GET', 'POST'], '/admin/news/edit_section/{section_id:\d+}[/]', [AdminSectionController::class, 'edit']);
-        $map->addRoute(['GET', 'POST'], '/admin/news/del_section/{section_id:\d+}[/]', [AdminSectionController::class, 'del']);
+        $map->addRoute(['GET', 'POST'], '/admin/news/edit_article/{article_id:\\d+}[/]', [AdminArticleController::class, 'edit']);
+        $map->addRoute(['GET', 'POST'], '/admin/news/add_article/[{section_id:\\d+}[/]]', [AdminArticleController::class, 'add']);
+        $map->addRoute(['GET', 'POST'], '/admin/news/del_article/{article_id:\\d+}[/]', [AdminArticleController::class, 'del']);
+        $map->addRoute(['GET', 'POST'], '/admin/news/add_section/[{section_id:\\d+}[/]]', [AdminSectionController::class, 'add']);
+        $map->addRoute(['GET', 'POST'], '/admin/news/edit_section/{section_id:\\d+}[/]', [AdminSectionController::class, 'edit']);
+        $map->addRoute(['GET', 'POST'], '/admin/news/del_section/{section_id:\\d+}[/]', [AdminSectionController::class, 'del']);
         $map->addRoute(['GET', 'POST'], '/admin/news/upload_file[/]', [AdminArticleController::class, 'loadFile']);
     }
 
@@ -103,11 +104,4 @@ return static function (RouteCollector $map, User $user) {
         /** @psalm-suppress MissingFile */
         require CONFIG_PATH . 'routes.local.php';
     }
-
-    // game_instant_lottery module routes
-    if (is_file(ROOT_PATH . 'modules/game_instant_lottery/config/routes.php')) {
-        $module_routes = require ROOT_PATH . 'modules/game_instant_lottery/config/routes.php';
-        $module_routes($map, $user);
-    }
 };
-

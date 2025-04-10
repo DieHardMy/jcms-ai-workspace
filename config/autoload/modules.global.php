@@ -28,8 +28,8 @@ return [
             'profile',
             'redirect',
             'registration',
-            'rss',
-            'game_instant_lottery',
+            'GameInstantLottery',
+            'rss'
         ],
         'system_modules'    => [
             'admin',
